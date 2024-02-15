@@ -88,8 +88,18 @@ document.addEventListener("DOMContentLoaded", function() {
             if (checkoutButton) {
                 checkoutButton.disabled = false;
             }
+
+            // Append the updated cartItem to the container
+            cartItemsContainer.appendChild(cartItem);
+            //event listener for deleting icon
+            const deleteItems = document.querySelector(".delete");
+            deleteItems.addEventListener("click", function(){
+                deleteCartItems();
+            });
         }
     }
+
+
     addToCartBtn.addEventListener("click", function(e) {
         // Parse existing items from local storage or initialize an empty array
         let shoppedItems = JSON.parse(localStorage.getItem("items")) || [];
@@ -101,27 +111,35 @@ document.addEventListener("DOMContentLoaded", function() {
             const price = parseFloat(currentPrice.textContent);
             const total = quantity * price;
 
-            // Create an object representing the item and add it to the array
-            const newItem = {
-                quantity: quantity,
-                price: price,
-                total: total,
-            };
-            shoppedItems.push(newItem);
+            // Check if the item is already in the cart
+            const existingItemIndex = shoppedItems.findIndex(item => item.price === price);
 
+            if (existingItemIndex !== -1) {
+                // If the item exists, update its quantity and total
+                shoppedItems[existingItemIndex].quantity += quantity;
+                shoppedItems[existingItemIndex].total += total;
+            } else {
+                // If the item is not in the cart, add it
+                const newItem = {
+                    quantity: quantity,
+                    price: price,
+                    total: total,
+                };
+            shoppedItems.push(newItem);
+            }
             // Update local storage with the new array of items
             localStorage.setItem("items", JSON.stringify(shoppedItems));
 
             // Update the cart icon
             cartItemCount+= quantity;
-        updateCartIcon(cartItemCount);
+            updateCartIcon(cartItemCount);
 
-        // Display items in the cart
-        displayCartItems(shoppedItems);
-    } else {
+            // Display items in the cart
+            displayCartItems(shoppedItems);
+        } else {
         alert("Please add items");
-    }
-});
+        }
+    });
 
     function updateCartIcon() {
         // Get the cart icon element
@@ -135,4 +153,15 @@ document.addEventListener("DOMContentLoaded", function() {
         <span class="cart-item-count">${cartItemCount}</span>
         `;
     }    
-})
+
+    //function called when delete icon is clicked
+    function deleteCartItems(price){
+        localStorage.removeItem("items");
+
+        // Update the cart icon
+        updateCartIcon(0);
+
+        // Display items in the cart
+        displayCartItems([]);
+    }
+});
