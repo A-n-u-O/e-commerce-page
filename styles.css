@@ -272,10 +272,42 @@ button span{
     .left .open-menu-container{
         width: 40vw;
     }
+    .images .slider .next, .slider .previous{
+        top: 35%;
+    }
+    .previous{
+        left: 2.5rem;
+    }
+    .next{
+        right: 2.5rem;
+        /* left: 0; */
+    }
+}
+@media only screen and (min-width: 425px){
+    .images .slider .next, .slider .previous{
+        top: 40%;
+    }
+    .previous{
+        left: 2.8rem;
+    }
+    .next{
+        right: 2.8rem;
+        /* left: 0; */
+    }
 }
 @media only screen and (min-width: 768px){
     .left .open-menu-container{
         width: 30vw;
+    }
+    .images .slider .next, .slider .previous{
+        top: 45%;
+    }
+    .previous{
+        left: 5rem;
+    }
+    .next{
+        right: 5rem;
+        /* left: 0; */
     }
 }
 @media only screen and (min-width: 1024px){

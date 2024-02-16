@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (items.length === 0) {
             // Show empty cart message if no items
+            alert("add items to cart.")
             const emptyCartMessage = document.createElement('p');
             emptyCartMessage.textContent = 'Your cart is empty';
             cartItemsContainer.appendChild(emptyCartMessage);
