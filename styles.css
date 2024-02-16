@@ -244,17 +244,26 @@ main{
 .addto-cart button{
     background-color: hsl(26, 100%, 55%);
     border: none;
-    width: 300px;
-    padding: 10px 50px;
+    width: 500px;
+    padding: 5px 15px;
     height: 40px;
     border-radius: 10px;
     align-items: center;
     box-shadow: 0 10px 25px rgba(255, 125, 26, 0.35);
     color: hsl(223, 64%, 98%);
-    font-weight: 900;
-    display: flex;
     gap: 20px;
+    /* font-weight: 900; */
 }
+.addto-cart button .mobile-addtocart{
+    display: flex;
+}
+.addto-cart button .mobile-addtocart svg{
+    padding-left: 3px;
+}
+.addto-cart .desktop-addtocart{
+    display: none;
+}
+
     
 /* media queries */
 @media only screen and (min-width: 375px){
@@ -362,6 +371,12 @@ main{
         opacity: 0.5;
         border: 3px solid hsl(26, 100%, 55%);
         cursor: pointer;
+    }
+    .addto-cart button .mobile-addtocart{
+        display: none;
+    }
+    .addto-cart .desktop-addtocart{
+        display: flex;
     }
     
 }
