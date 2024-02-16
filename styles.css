@@ -248,7 +248,7 @@ main{
     padding: 5px 15px;
     height: 40px;
     border-radius: 10px;
-    align-items: center;
+    /* align-items: center; */
     box-shadow: 0 10px 25px rgba(255, 125, 26, 0.35);
     color: hsl(223, 64%, 98%);
     gap: 20px;
@@ -256,6 +256,8 @@ main{
 }
 .addto-cart button .mobile-addtocart{
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .addto-cart button .mobile-addtocart svg{
     padding-left: 5px;
@@ -377,6 +379,8 @@ main{
     }
     .addto-cart .desktop-addtocart{
         display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
 }
