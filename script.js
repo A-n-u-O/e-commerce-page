@@ -12,8 +12,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const openMenu = document.querySelector(".open-menu"); 
     const closeMenu = document.querySelector(".close-menu");
     const menuContainer = document.querySelector(".open-menu-container");
+    const nextSlider = document.querySelector(".next");
+    const previousSlider = document.querySelector(".previous");
+    let shoppedItems = JSON.parse(localStorage.getItem("items")) || [];
+    // let cartItemCount = 0;
+    updateCartIcon(shoppedItems[0]?.quantity || 0);
+    displayCartItems(shoppedItems);
 
 
+    // opening and closing menu for mobile
     openMenu.addEventListener("click", function(e){
         menuContainer.style.visibility = "visible";
     })
@@ -22,10 +29,54 @@ document.addEventListener("DOMContentLoaded", function() {
         menuContainer.style.visibility = "hidden";
     })
 
-    let shoppedItems = JSON.parse(localStorage.getItem("items")) || [];
-    // let cartItemCount = 0;
-     updateCartIcon(shoppedItems[0]?.quantity || 0);
-            displayCartItems(shoppedItems);
+    nextSlider.addEventListener("click", function(e){
+        displayNextImage();
+    });
+    previousSlider.addEventListener("click", function(e){
+        displayPreviousImage();
+    })
+
+
+    function displayNextImage() {
+        const nextimgSrc = img.src;
+        // console.log(nextimgSrc);
+    
+        switch (nextimgSrc) {
+            case "http://192.168.88.103:5502/images/image-product-1.jpg":
+                img.src = "http://192.168.88.103:5502/images/image-product-2.jpg";
+                break;
+            case "http://192.168.88.103:5502/images/image-product-2.jpg":
+                img.src = "http://192.168.88.103:5502/images/image-product-3.jpg";
+                break;
+            case "http://192.168.88.103:5502/images/image-product-3.jpg":
+                img.src = "http://192.168.88.103:5502/images/image-product-4.jpg";
+                break;
+            default:
+                img.src = "http://192.168.88.103:5502/images/image-product-4.jpg";
+                break;
+        }
+    }
+
+    function displayPreviousImage(){
+        const previousimgSrc = img.src;
+        // console.log(previousimgSrc);
+
+        switch (previousimgSrc){
+            case "http://192.168.88.103:5502/images/image-product-4.jpg":
+                img.src = "http://192.168.88.103:5502/images/image-product-3.jpg";
+                break;
+            case "http://192.168.88.103:5502/images/image-product-3.jpg":
+                img.src = "http://192.168.88.103:5502/images/image-product-2.jpg";
+                break;
+            case "http://192.168.88.103:5502/images/image-product-2.jpg":
+                img.src = "http://192.168.88.103:5502/images/image-product-1.jpg";
+                break;
+            default:
+                img.src = "http://192.168.88.103:5502/images/image-product-1.jpg";
+                break;
+        }
+    }
+
     //to change image to another image when thumbnail is clicked
     thumbnail.forEach(element => {
         element.addEventListener("click", function(e){
@@ -33,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     });
 
+
+    //adding items to cart
     remove.addEventListener("click", function(e) {
         let items = parseInt(noOfItems.textContent);
         if (items > 0) {
