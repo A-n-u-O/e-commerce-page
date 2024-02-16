@@ -9,6 +9,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const displayCartContent = document.querySelector(".cart-content");
     const currentPrice = document.querySelector(".current-price");
     const addToCartBtn = document.querySelector(".adding-To-Cart");
+    const openMenu = document.querySelector(".open-menu"); 
+    const closeMenu = document.querySelector(".close-menu");
+    const menuContainer = document.querySelector(".open-menu-container");
+
+
+    openMenu.addEventListener("click", function(e){
+        menuContainer.style.visibility = "visible";
+    })
+
+    closeMenu.addEventListener("click", function(e){
+        menuContainer.style.visibility = "hidden";
+    })
+
     let shoppedItems = JSON.parse(localStorage.getItem("items")) || [];
     // let cartItemCount = 0;
      updateCartIcon(shoppedItems[0]?.quantity || 0);

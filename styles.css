@@ -6,6 +6,7 @@ body{
     background-color: hsl(0, 0%, 100%);
     height: 100vw;
     margin: 0 10%;
+    width: auto;
  }
 header{
     border-bottom: 1px solid hsl(219, 9%, 45%);
@@ -15,6 +16,12 @@ header{
 header .left{
     display: flex;
 }
+.left .open-menu{
+    margin: 23% 2% 23% 0;
+}
+.left .menu-large-screen{
+    display: none;
+}
 header .right{
     display: flex;
     justify-content: flex-end;
@@ -23,6 +30,7 @@ header .right{
     position: relative;
     cursor: pointer;
     margin-top: 10px;
+    margin-left: 10px;
   }
 .cart-item-count {
     position: absolute;
@@ -39,40 +47,60 @@ header .right{
     margin-top: 25px;
 }
 .right .profile img{
-    margin: 5px;
-    margin-left: 40px;
-    max-width: 60px;
+    margin: 20px 0px 5px 10px;
+    max-width: 30px;
 }
 .right .profile img:hover{
     border: 3px solid hsl(26, 100%, 55%);
     border-radius: 50%;
 }
-ul{
-    display: flex;
-    list-style: none;
-    margin-top: 25px;
+
+/* menu */
+.left .open-menu-container{
+    background-color: #fff;
+    height: 100%;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    transform: translateX(0);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    z-index: 999;
+    padding-top: 2.2rem;
+    padding-left: 2.2rem;
+    transition: all 0.2s ease-in-out;
 }
-ul li{
-    margin: 10px;
+.open-menu-container .close-menu{
+    position: relative;
+    right: 0;
+}
+.left .open-menu-container .mobile-menu{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    font-weight: 900;
 }
 li a{
     text-decoration: none;
-    color: gray;
+    color: black;
 }
 .cart-content{
     background-color: hsl(0, 0%, 100%);
     border: none;
     box-shadow: 5px 5px 15px rgb(24, 15, 1);
     text-align: left;
-    width: 300px;
+    width: 225px;
     border-radius: 1rem;
     padding: 5px 10px;
     padding-bottom: 1rem;
     max-height: 400px;
     overflow-y: auto;
     position: fixed; 
-    top: 11%; 
-    left: 65%; 
+    top: auto; 
+    left: 15%; 
     z-index: 9999;
     visibility: hidden; 
 }
@@ -123,39 +151,45 @@ main{
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 .images{
-    flex-basis: 50%;
     display: flex;
     flex-direction: column;
 }
 .images .product-img img{
-    max-width: 500px;
+    max-width: 100%;
     border-radius: 10px;
 }
-.images .img-2, .img-3, .img-4{
-    display: none;
+.images .slider .next, .slider .previous{
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    top: 35%;
+    width: 50px;
+    height: 50px;
+    margin-top: -22px;
+    background-color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 22px;
+    transition: .6s ease;
+    place-content: center;
+    align-items: center;
+}
+.previous{
+    left: 2.2rem;
+}
+.next{
+    right: 2.2rem;
+    /* left: 0; */
 }
 .images .thumbnails{
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-.images .thumbnails img{
-    max-width: 100px;
-    border-radius: 7px;
-    margin: 10px 0;
-}
-.images .thumbnails img:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
-    opacity: 0.5;
-    border: 3px solid hsl(26, 100%, 55%);
-    cursor: pointer;
+    display: none;
 }
 
 .product-description{
-    margin: 10%;
+    margin: 10% 10% 10% 0;
 }
 .product-description h4{
     color: hsl(26, 100%, 55%);
@@ -224,4 +258,82 @@ main{
 button span{
     color: hsl(223, 64%, 98%);
     font-weight: 900;
+}
+    
+/* media queries */
+@media only screen and (min-width: 375px){
+    .cart-content{
+        left: 15%;
+        width: 280px;
+    }
+    .right .profile img{
+        margin: 20px 0px 5px 18px;
+    }
+    .left .open-menu-container{
+        width: 40vw;
+    }
+}
+@media only screen and (min-width: 768px){
+    .left .open-menu-container{
+        width: 30vw;
+    }
+}
+@media only screen and (min-width: 1024px){
+    body{
+        width: 100%;
+    }
+    .left .open-menu, .close-menu{
+        display: none;
+        }
+    .open-menu-container{
+        display: none;
+    }
+    .left .menu-large-screen{
+        list-style: none;
+        display: flex;
+        margin: 10px;
+    }
+    .left .menu-large-screen li{
+        color: grey;
+        margin: 20px 10px 10px 10px;
+    }
+    .right .profile img{
+        max-width: 60px;
+        margin-left: 20px;
+    }
+    .cart-content{
+        width: 300px;
+        top: 11%; 
+        left: 65%; 
+    }
+    main{
+        flex-direction: row;
+    }
+    .product-description{
+        margin: 10%;
+    }
+    .images{
+        flex-basis: 50%;
+    }
+    .images .slider{
+        display: none;
+    }
+    .images .thumbnails{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .images .thumbnails img{
+        max-width: 100px;
+        border-radius: 7px;
+        margin: 10px 0;
+    }
+    .images .thumbnails img:hover{
+        transform: translateY(-2px);
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        opacity: 0.5;
+        border: 3px solid hsl(26, 100%, 55%);
+        cursor: pointer;
+    }
+    
 }
