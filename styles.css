@@ -255,10 +255,6 @@ main{
     display: flex;
     gap: 20px;
 }
-button span{
-    color: hsl(223, 64%, 98%);
-    font-weight: 900;
-}
     
 /* media queries */
 @media only screen and (min-width: 375px){
