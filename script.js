@@ -42,17 +42,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log(nextimgSrc);
     
         switch (nextimgSrc) {
-            case "http://192.168.88.103:5502/images/image-product-1.jpg":
-                img.src = "http://192.168.88.103:5502/images/image-product-2.jpg";
+            case "/images/image-product-1.jpg":
+                img.src = "/images/image-product-2.jpg";
                 break;
-            case "http://192.168.88.103:5502/images/image-product-2.jpg":
-                img.src = "http://192.168.88.103:5502/images/image-product-3.jpg";
+            case "/images/image-product-2.jpg":
+                img.src = "/images/image-product-3.jpg";
                 break;
-            case "http://192.168.88.103:5502/images/image-product-3.jpg":
-                img.src = "http://192.168.88.103:5502/images/image-product-4.jpg";
+            case "/images/image-product-3.jpg":
+                img.src = "/images/image-product-4.jpg";
                 break;
             default:
-                img.src = "http://192.168.88.103:5502/images/image-product-4.jpg";
+                img.src = "/images/image-product-4.jpg";
                 break;
         }
     }
@@ -62,17 +62,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log(previousimgSrc);
 
         switch (previousimgSrc){
-            case "http://192.168.88.103:5502/images/image-product-4.jpg":
-                img.src = "http://192.168.88.103:5502/images/image-product-3.jpg";
+            case "/images/image-product-4.jpg":
+                img.src = "/images/image-product-3.jpg";
                 break;
-            case "http://192.168.88.103:5502/images/image-product-3.jpg":
-                img.src = "http://192.168.88.103:5502/images/image-product-2.jpg";
+            case "/images/image-product-3.jpg":
+                img.src = "/images/image-product-2.jpg";
                 break;
-            case "http://192.168.88.103:5502/images/image-product-2.jpg":
-                img.src = "http://192.168.88.103:5502/images/image-product-1.jpg";
+            case "/images/image-product-2.jpg":
+                img.src = "/images/image-product-1.jpg";
                 break;
             default:
-                img.src = "http://192.168.88.103:5502/images/image-product-1.jpg";
+                img.src = "/images/image-product-1.jpg";
                 break;
         }
     }
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (items.length === 0) {
             // Show empty cart message if no items
-            alert("add items to cart.")
+            alert("add items to cart")
             const emptyCartMessage = document.createElement('p');
             emptyCartMessage.textContent = 'Your cart is empty';
             cartItemsContainer.appendChild(emptyCartMessage);
