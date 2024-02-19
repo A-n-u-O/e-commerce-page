@@ -42,17 +42,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log(nextimgSrc);
     
         switch (nextimgSrc) {
-            case "/images/image-product-1.jpg":
+            case "./images/image-product-1.jpg":
                 img.src = "/images/image-product-2.jpg";
                 break;
-            case "/images/image-product-2.jpg":
+            case "./images/image-product-2.jpg":
                 img.src = "/images/image-product-3.jpg";
                 break;
-            case "/images/image-product-3.jpg":
+            case "./images/image-product-3.jpg":
                 img.src = "/images/image-product-4.jpg";
                 break;
             default:
-                img.src = "/images/image-product-4.jpg";
+                img.src = "./images/image-product-4.jpg";
                 break;
         }
     }
@@ -62,17 +62,17 @@ document.addEventListener("DOMContentLoaded", function() {
         // console.log(previousimgSrc);
 
         switch (previousimgSrc){
-            case "/images/image-product-4.jpg":
-                img.src = "/images/image-product-3.jpg";
+            case "./images/image-product-4.jpg":
+                img.src = "./images/image-product-3.jpg";
                 break;
-            case "/images/image-product-3.jpg":
-                img.src = "/images/image-product-2.jpg";
+            case "./images/image-product-3.jpg":
+                img.src = "./images/image-product-2.jpg";
                 break;
-            case "/images/image-product-2.jpg":
-                img.src = "/images/image-product-1.jpg";
+            case "./images/image-product-2.jpg":
+                img.src = "./images/image-product-1.jpg";
                 break;
             default:
-                img.src = "/images/image-product-1.jpg";
+                img.src = "./images/image-product-1.jpg";
                 break;
         }
     }
