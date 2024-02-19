@@ -43,13 +43,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
         switch (nextimgSrc) {
             case "./images/image-product-1.jpg":
-                img.src = "/images/image-product-2.jpg";
+                img.src = "./images/image-product-2.jpg";
                 break;
             case "./images/image-product-2.jpg":
-                img.src = "/images/image-product-3.jpg";
+                img.src = "./images/image-product-3.jpg";
                 break;
             case "./images/image-product-3.jpg":
-                img.src = "/images/image-product-4.jpg";
+                img.src = "./images/image-product-4.jpg";
                 break;
             default:
                 img.src = "./images/image-product-4.jpg";
